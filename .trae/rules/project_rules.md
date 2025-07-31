@@ -9,3 +9,4 @@ tampilan harus responsive dan mobile friendly
 wajib ada log setiap ada penambahan/perubahan data (bisa dengan laravel audit)
 code dikirim step by step agar tidak terpotong limit response
 framework laravel(12)-react
+setiap selesai membuat view, check juga apakah component sudah ada, jika belum bisa dibuatkan langsung

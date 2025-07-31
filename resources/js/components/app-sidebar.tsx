@@ -4,7 +4,7 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from '@/components/ui/sidebar';
 import { type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid, Users, Shield } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, Users, Shield, Key } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -69,6 +69,18 @@ export function AppSidebar() {
                                     >
                                         <Link href={route('admin.roles.index')} prefetch>
                                             Manajemen Role
+                                        </Link>
+                                    </SidebarMenuSubButton>
+                                </SidebarMenuSubItem>
+                                
+                                {/* Tambahkan menu Manajemen Hak Akses */}
+                                <SidebarMenuSubItem>
+                                    <SidebarMenuSubButton 
+                                        asChild 
+                                        isActive={window.location.pathname.startsWith('/admin/permissions')}
+                                    >
+                                        <Link href={route('admin.permissions.index')} prefetch>
+                                            Manajemen Hak Akses
                                         </Link>
                                     </SidebarMenuSubButton>
                                 </SidebarMenuSubItem>

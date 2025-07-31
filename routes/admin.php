@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\PermissionController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -15,4 +16,7 @@ Route::middleware(['auth', 'active.role:admin'])->prefix('admin')->name('admin.'
 
     // Role management
     Route::resource('roles', RoleController::class);
+    
+    // Permission management (Manajemen Hak Akses)
+    Route::resource('permissions', PermissionController::class);
 });
