@@ -8,10 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Models\Role;
+use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Auditable as AuditableTrait;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Auditable
 {
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, AuditableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -87,4 +89,14 @@ class User extends Authenticatable
         
         return $this->activeRole->hasPermissionTo($permission);
     }
+    
+    /**
+     * Attributes to exclude from the Audit.
+     *
+     * @var array
+     */
+    protected $auditExclude = [
+        'password',
+        'remember_token'
+    ];
 }

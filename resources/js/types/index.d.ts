@@ -39,5 +39,17 @@ export interface User {
     email_verified_at: string | null;
     created_at: string;
     updated_at: string;
+    activeRole?: Role;
     [key: string]: unknown; // This allows for additional properties...
+}
+
+export interface Role {
+    id: number;
+    name: string;
+    permissions?: Permission[];
+}
+
+export interface Permission {
+    id: number;
+    name: string;
 }
